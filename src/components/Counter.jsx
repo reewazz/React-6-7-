@@ -24,7 +24,7 @@ function Counter (){
 
     return (
         <>
-        <h1 className="text-4xl text-red-950 text-center"> changes to show in github </h1>
+        <h1 className="text-4xl text-red-950 text-center"> back to old {text} </h1>
 <div className="flex justify-center">
   <button onClick={changeText} className="border border-gray-400 p-4 ">Change Text</button>
 

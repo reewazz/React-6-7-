@@ -103,11 +103,6 @@ const [show,setShow] = useState(false)
  
   }
 
-
-
-
-
-
 const addProduct = ()=> {
   const newProduct = {
     id: Date.now(),
@@ -132,12 +127,7 @@ const addProduct = ()=> {
 const [filter,setFilter] = useState("") //this is category
 
 
-// const categories = (productList.map((item,index)=>item.category))
 
-// [1,1,3,4,6,3,2,1,2]  ->Set = [1,3,4,6,2] 
-
-
-// const numbers = new Set( [1,2,3,4,5,1,2,3,4,5])
 // console.log(numbers,"nummm")
 
 const categories = [...new  Set(productList.map(item => item.category))];
