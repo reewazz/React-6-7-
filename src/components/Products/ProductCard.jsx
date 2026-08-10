@@ -34,7 +34,7 @@ function ProductCard ({item,handleDelete}) {
         ${item.price}
       </p>
 
-      <button onClick={()=>handleDelete(item.id)} className="px-4 py-2 bg-red-500 text-white rounded-lg shadow hover:bg-red-600 hover:scale-105 active:scale-95 transition-all duration-300">
+      <button onClick={(e)=>handleDelete(item.id,e)} className="px-4 py-2 bg-red-500 text-white rounded-lg shadow hover:bg-red-600 hover:scale-105 active:scale-95 transition-all duration-300">
         Delete
       </button>
     </div>

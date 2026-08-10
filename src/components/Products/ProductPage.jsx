@@ -1,7 +1,7 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import ProductCard from "./ProductCard";
 
-function ProductPage () {
+export function ProductPage () {
 
   const [productList,setProductList] = useState([
   {
@@ -86,22 +86,56 @@ function ProductPage () {
   },
 ]);
 
+
+
 const [name,setName] = useState("")
 const [brand,setBrand] = useState("")
 const [category,setCategory] = useState("")
 const [price,setPrice] = useState("")
 const [image,setImage] = useState("")
 
+
+
 const [show,setShow] = useState(false)
 
+// localStorage.setItem("products",JSON.stringify(productList))
 
- const handleDelete = (a)=> {
+
+
+// localStorage.setItem("name","riwaj")
+
+
+const userObj = {
+  name : "sandip",
+  age :21
+}
+// localStorage.removeItem("name")
+
+const myname = localStorage.getItem("name")
+
+console.log(myname,"name from local")
+
+const name2 = "ddne"
+localStorage.setItem("name", true)
+localStorage.setItem("names", "another name")
+
+
+
+localStorage.setItem("user", JSON.stringify(userObj))
+
+const userobjfromlocal = JSON.parse(localStorage.getItem("user"))
+
+ const handleDelete = (a,e)=> {
+  console.log(e,'event')
+
+  e.preventDefault()
    const newTodo = productList.filter((item,index)=> {
         return item.id!==a
     })
     setProductList(newTodo)
  
   }
+  
 
 const addProduct = ()=> {
   const newProduct = {
@@ -113,7 +147,13 @@ const addProduct = ()=> {
      image: "https://picsum.photos/seed/sonya7iv/600/600",
 
     }
-    setProductList ([...productList,newProduct])
+    // setProductList ([...productList,newProduct])
+    // setProductList ((prev)=>[...prev,newProduct])
+      setProductList((prev) => {
+    const updatedList = [...prev, newProduct];
+    localStorage.setItem("productlist", JSON.stringify(updatedList));
+    return updatedList;
+  });
   setName("")
   setBrand("")
   setPrice("")
@@ -121,28 +161,41 @@ const addProduct = ()=> {
   setCategory("")
 
   setShow(false)
+  
 
 }
 
+
+useEffect(()=> {
+  localStorage.setItem("products",productList)
+},[productList])
 const [filter,setFilter] = useState("") //this is category
 
 
+const productListfromLocal = JSON.parse(localStorage.getItem("productlist"))
 
 // console.log(numbers,"nummm")
 
 const categories = [...new  Set(productList.map(item => item.category))];
 
-const filteredProducts =   filter==="" ? productList :     productList.filter ((item,index)=> (
+const filteredProducts =   filter==="" ? productListfromLocal :     productList.filter ((item,index)=> (
             item.category === filter
 ))
 
 console.log(filteredProducts)
 console.log(categories,"cattt")
 
+
+
     return (
         <>
 
        
+        <h1>{userobjfromlocal.age}</h1>
+       <div>
+        <h1>Total Products</h1>
+        <p> $  {productList.length}  </p>
+       </div>
     <div className="flex justify-center">
       <button onClick={()=>setShow(true)} className="h-auto w-auto py-2 px-4 bg-blue-400">Add Product </button>
     </div>
@@ -276,4 +329,3 @@ console.log(categories,"cattt")
 }
 
 
-export default ProductPage

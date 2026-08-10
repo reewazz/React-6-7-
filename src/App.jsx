@@ -5,11 +5,14 @@ import Toogles from "./components/Toggles"
 import jobaxle from "./assets/images/favicon-1.jpeg"
 import TodoList from "./components/todolist/Todolist"
 import TodoList2 from "./components/todolist/Todolist2"
-import ProductPage from "./components/Products/ProductPage"
+import {ProductPage} from "./components/Products/ProductPage"
 import Navbar from "./components/Navbar"
 import { Route, Routes } from "react-router-dom"
 import CourseDetailPage from "./components/Course/CourseDetailPage"
-import ProductDetailPage from "./components/Products/ProductDetailPage"
+import {ProductDetailPage} from "./components/Products/ProductDetailPage"
+import Homepage from "./components/HomePage"
+import MantineUi from "./components/MantineUi/MantineUi"
+import NewsList from "./components/News/NewsList"
 
 
 function App() {
@@ -21,7 +24,7 @@ function App() {
 <Navbar/>
 <Routes>
 
-<Route index element={<h1>This is Home page</h1>}/>
+<Route index element={<Homepage/>}/>
 {/* can also be used like below */}
 {/* <Route path="/" element={<h1>This is Home page</h1>}/> */}   
 <Route path="products" element = {<ProductPage/>}/>
@@ -31,6 +34,8 @@ function App() {
 <Route path="todo/2" element = { <TodoList/>  } />
 <Route path="course" element = {<h1>This is Course page this is main</h1>} />
 <Route path="course/:name" element = {<CourseDetailPage/>} />
+<Route path="mantine" element = {<MantineUi/>} />
+<Route path="news" element = {<NewsList/>} />
 
  
 <Route path="*" element = {<h1>Page not found</h1>}/>

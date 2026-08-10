@@ -1,6 +1,6 @@
 import { useParams, useSearchParams } from "react-router-dom"
 
-function ProductDetailPage () {
+export const ProductDetailPage = ()=> {
 
     const product = useParams()
 
@@ -20,4 +20,3 @@ function ProductDetailPage () {
 }
 
 
-export default ProductDetailPage

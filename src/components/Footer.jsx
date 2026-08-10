@@ -1,11 +1,7 @@
-import Navbar from "./Navbar"
-
-function Footer ({name,age,news}) {
-
+ const Footer = ()=> {
     return (
         <>
-    <h1 className="bg-black text-white text-center">This is footer </h1>
-  
+        <h1>This is footer </h1>
         </>
     )
 }
