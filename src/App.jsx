@@ -13,6 +13,8 @@ import {ProductDetailPage} from "./components/Products/ProductDetailPage"
 import Homepage from "./components/HomePage"
 import MantineUi from "./components/MantineUi/MantineUi"
 import NewsList from "./components/News/NewsList"
+import Netflix from "./components/Netflix/Netflix"
+import BlogList from "./components/Blogs/BlogList"
 
 
 function App() {
@@ -36,6 +38,8 @@ function App() {
 <Route path="course/:name" element = {<CourseDetailPage/>} />
 <Route path="mantine" element = {<MantineUi/>} />
 <Route path="news" element = {<NewsList/>} />
+<Route path="netflix" element = {<Netflix/>} />
+<Route path="blogs" element = {<BlogList/>} />
 
  
 <Route path="*" element = {<h1>Page not found</h1>}/>

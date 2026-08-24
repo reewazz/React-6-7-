@@ -14,6 +14,7 @@ function Navbar() {
         
            <NavLink to='products' className={"px-4 py-2 rounded-lg"}>Product</NavLink>
            <NavLink to='todo' className={"px-4 py-2 rounded-lg"}>Todo</NavLink>
+           <NavLink to='blogs' className={"px-4 py-2 rounded-lg"}>Blogs</NavLink>
         </div>
 
       </div>

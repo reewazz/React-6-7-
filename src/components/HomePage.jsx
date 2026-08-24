@@ -11,9 +11,9 @@ import React, { useEffect, useState } from 'react'
   }
   
 
-  useEffect (()=>{
-   makeAlert()
-  }, [count] )
+  // useEffect (()=>{
+   
+  // }, [count] )
 
 
   return (

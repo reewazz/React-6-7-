@@ -1,15 +1,16 @@
 import { Link } from "react-router-dom"
 
 function ProductCard ({item,handleDelete}) {
+ 
 
     return (
         <>
-        <Link to= {`${item.name}?price=${item.price}&rating=${item.brand}`} className="group cursor-pointer bg-white rounded-2xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2 border border-gray-200 hover:border-red-400">
+        <Link to= {`${item.id}?price=${item.price}&rating=${item.brand}`} className="group cursor-pointer bg-white rounded-2xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2 border border-gray-200 hover:border-red-400">
   
   {/* Product Image */}
   <div className="overflow-hidden">
     <img
-      src={item.image}
+      src={item.images[0]}
       alt={item.name}
       className="w-full h-60 object-cover transition-transform duration-500 group-hover:scale-110"
     />
@@ -18,7 +19,7 @@ function ProductCard ({item,handleDelete}) {
   {/* Product Details */}
   <div className="p-4">
     <h1 className="text-lg font-semibold text-gray-800 truncate">
-      {item.name}
+      {item.title}
     </h1>
     
 

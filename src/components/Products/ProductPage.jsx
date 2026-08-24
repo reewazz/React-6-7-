@@ -3,88 +3,7 @@ import ProductCard from "./ProductCard";
 
 export function ProductPage () {
 
-  const [productList,setProductList] = useState([
-  {
-    id: 101,
-    name: "iPhone 16 Pro",
-    brand: "Apple",
-    category: "Smartphones",
-    price: 1099,
-    image: "https://picsum.photos/seed/iphone16pro/600/600",
-  },
-  {
-    id: 102,
-    name: "Samsung Galaxy S25 Ultra",
-    brand: "Samsung",
-    category: "Smartphones",
-    price: 1199,
-    image: "https://picsum.photos/seed/galaxys25ultra/600/600",
-  },
-  {
-    id: 201,
-    name: "MacBook Air M3",
-    brand: "Apple",
-    category: "Laptops",
-    price: 1299,
-    image: "https://picsum.photos/seed/macbookairm3/600/600",
-  },
-  {
-    id: 202,
-    name: "Dell XPS 13",
-    brand: "Dell",
-    category: "Laptops",
-    price: 1399,
-    image: "https://picsum.photos/seed/dellxps13/600/600",
-  },
-  {
-    id: 301,
-    name: "Apple Watch Series 10",
-    brand: "Apple",
-    category: "Smartwatches",
-    price: 499,
-    image: "https://picsum.photos/seed/applewatch10/600/600",
-  },
-  {
-    id: 302,
-    name: "Samsung Galaxy Watch Ultra",
-    brand: "Samsung",
-    category: "Smartwatches",
-    price: 649,
-    image: "https://picsum.photos/seed/galaxywatchultra/600/600",
-  },
-  {
-    id: 401,
-    name: "AirPods Pro 2",
-    brand: "Apple",
-    category: "Earbuds",
-    price: 249,
-    image: "https://picsum.photos/seed/airpodspro2/600/600",
-  },
-  {
-    id: 402,
-    name: "Sony WF-1000XM5",
-    brand: "Sony",
-    category: "Earbuds",
-    price: 299,
-    image: "https://picsum.photos/seed/sonyxm5/600/600",
-  },
-  {
-    id: 501,
-    name: "Sony Alpha A7 IV",
-    brand: "Sony",
-    category: "Cameras",
-    price: 2499,
-    image: "https://picsum.photos/seed/sonya7iv/600/600",
-  },
-  {
-    id: 502,
-    name: "Canon EOS R8",
-    brand: "Canon",
-    category: "Cameras",
-    price: 1499,
-    image: "https://picsum.photos/seed/canoneosr8/600/600",
-  },
-]);
+  const [productList,setProductList] = useState([]);
 
 
 
@@ -94,6 +13,17 @@ const [category,setCategory] = useState("")
 const [price,setPrice] = useState("")
 const [image,setImage] = useState("")
 
+
+const fetchProducts = async()=> {
+  const response = await fetch("http://localhost:8000/products")
+  const finalresponse = await response.json()
+  setProductList(finalresponse)
+}
+
+
+useEffect(()=>{
+fetchProducts()
+},[])
 
 
 const [show,setShow] = useState(false)
@@ -178,7 +108,7 @@ const productListfromLocal = JSON.parse(localStorage.getItem("productlist"))
 
 const categories = [...new  Set(productList.map(item => item.category))];
 
-const filteredProducts =   filter==="" ? productListfromLocal :     productList.filter ((item,index)=> (
+const filteredProducts =   filter=== "" ? productList :     productList.filter ((item,index)=> (
             item.category === filter
 ))
 
@@ -320,7 +250,7 @@ console.log(categories,"cattt")
 
     </div>
       <div className="grid grid-cols-3 gap-8 py-16 px-20">
-          {filteredProducts.map((item,index)=> (
+          {filteredProducts?.map((item,index)=> (
            <ProductCard handleDelete={handleDelete} key={index}  item = {item}  />
         ))}
       </div>
