@@ -15,6 +15,7 @@ import MantineUi from "./components/MantineUi/MantineUi"
 import NewsList from "./components/News/NewsList"
 import Netflix from "./components/Netflix/Netflix"
 import BlogList from "./components/Blogs/BlogList"
+import Signup from "./components/Signup"
 
 
 function App() {
@@ -39,7 +40,9 @@ function App() {
 <Route path="mantine" element = {<MantineUi/>} />
 <Route path="news" element = {<NewsList/>} />
 <Route path="netflix" element = {<Netflix/>} />
+<Route path="signup" element = {<Signup/>} />
 <Route path="blogs" element = {<BlogList/>} />
+
 
  
 <Route path="*" element = {<h1>Page not found</h1>}/>
