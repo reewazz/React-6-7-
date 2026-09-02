@@ -15,6 +15,8 @@ const BlogList = () => {
     fetchBlogs()
     },[])
 
+    
+
     console.log(bloglist,"blogss")
   return (
     <div>
