@@ -1,6 +1,7 @@
 import { useState } from "react";
+import TodoList2 from "./Todolist2";
 
-function TodoList() {
+function TodoList({children}) {
   const [todoList, setTodoList] = useState(["Task 1", "Create Todo App"]);
 
   const fruits = ["apple", "banana"];
@@ -81,7 +82,7 @@ console.log(todoList);
   return (
     <div className="bg-blue-400 h-screen flex items-center justify-center">
       <div className="bg-white w-100 h-[400px] flex flex-col p-4 rounded-lg">
-        <h1 className="font-semibold text-2xl text-center">Todolist </h1>
+        <h1 className="font-semibold text-2xl text-center">Todolist  </h1>
 
         <input
           type="text"
@@ -104,6 +105,7 @@ console.log(todoList);
         </button>
      
       </div>
+   
     </div>
   );
 }

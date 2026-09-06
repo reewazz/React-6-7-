@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom"
+import { Link, NavLink, Outlet } from "react-router-dom"
 import Footer from "./Footer"
 
 function Navbar() {
@@ -16,8 +16,8 @@ function Navbar() {
            <NavLink to='todo' className={"px-4 py-2 rounded-lg"}>Todo</NavLink>
            <NavLink to='blogs' className={"px-4 py-2 rounded-lg"}>Blogs</NavLink>
         </div>
-
       </div>
+<Outlet/>
         </>
     )
 }
