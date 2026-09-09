@@ -11,7 +11,7 @@ const AdminLayout = () => {
             <div>Product</div>
 
         </div>
-        <div className='4/6'>
+        <div className='w-full'>
          <Outlet/>
         </div>
 

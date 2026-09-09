@@ -35,7 +35,7 @@ function App() {
 
 <Route path="products" element = {<ProductPage/>}/>
 <Route path="products/:name" element = {<ProductDetailPage/>}/>
-<Route path="todo" element = { <TodoList2/>  } />
+<Route path="/todo" element = { <TodoList2/>  } />
 <Route path="todo2" element = { <TodoList/>  } />
 <Route path="course" element = {<h1>This is Course page this is main</h1>} />
 <Route path="course/:name" element = {<CourseDetailPage/>} />
